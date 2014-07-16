@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <widget xmlns		= "http://www.w3.org/ns/widgets"
 	xmlns:gap	= "http://phonegap.com/ns/1.0"
-	id		= "com.vaadin.phonegap.getting.started"
+	id		= "org.konacloud.busuy"
 	version 	= "1.0.0">
 
 	<name>Bus UY</name>
 
 	<description>
-		Aplicacion para buscar omnibus interdepartamentales
+		Aplicacion para buscar omnibus interdepartamentales en Uruguay
 	</description>
 
 	<author href="http://konacloud.io"
@@ -15,11 +15,13 @@
 		Santiago Cotto
 	</author>
 
+	<gap:splash src="splash.png" gap:platform="android" gap:density="mdpi" />
+
 	<icon src="icon.png" gap:role="default" />
 
 	<feature name="http://api.phonegap.com/1.0/geolocation"/>
 	<feature name="http://api.phonegap.com/1.0/network"/>
-	
+
 	<!-- These rules lets demo.vaadin.com take over the web view created by cordova/phonegap -->
 	<preference name="stay-in-webview" value="true" />
 
