@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title></title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+  <link href="codiqa.ext.css" rel="stylesheet">
+  <link href="jquery.mobile-1.4.2.css" rel="stylesheet">
+  <link rel="stylesheet" type="text/css" href="style.css">
+  <link rel="stylesheet" type="text/css" href="jquery.mobile.squareui.css" />
+
+  <script src="jquery.min.js"></script>
+  <script src="jquery.mobile-1.4.2.min.js"></script>
+  <script src="codiqa.ext.js"></script>
+
+
+  <script src="script.js"></script>
+
+</head>
+<body>
+<div data-role="page" data-control-title="Home" id="page1">
+    <div data-theme="a" data-role="header">
+        <h1 class="ui-title">
+            BusUY
+        </h1>
+    </div>
+    <div role="main" class="ui-content">
+        <div style=" text-align:center" data-controltype="image">
+            <img style="width: 60%; height: 20%" src="https://cdn3.iconfinder.com/data/icons/meanicons-base/512/meanicons_5-256.png">
+        </div>
+        <div class="ui-field-contain" data-controltype="selectmenu">
+            <label for="origen">
+                Seleccione origen:
+            </label>
+            <select id="origen" name="">
+            </select>
+        </div>
+        <div class="ui-field-contain" data-controltype="selectmenu">
+            <label for="destino">
+                Seleccione Destino:
+            </label>
+            <select id="destino" name="">
+            </select>
+        </div>
+        <input id="btnBuscar" type="submit" data-icon="search" data-iconpos="right" value="Buscar">
+    </div>
+    <div data-theme="a" data-role="footer" data-position="fixed">
+        <h3 class="ui-title">
+            Powered by KONA Cloud
+        </h3>
+    </div>
+</div>
+<div data-role="page" data-control-title="horarios" id="page2">
+    <div data-theme="a" data-role="header">
+        <a href="#" class="ui-btn-left" data-transition="slide" data-direction="reverse" onclick="history.go(-1);">Atras</a>
+        <h1 class="ui-title">
+            Horarios
+        </h1>
+    </div>
+    <div role="main" class="ui-content">
+        <ul id="search-page-list-view" data-role="listview" data-divider-theme="a" data-inset="true" data-autodividers="true">
+            <li data-theme="a">
+                <a href="" data-transition="slide">
+                    Button
+                </a>
+            </li>
+            <li data-theme="a">
+                <a href="#page1" data-transition="slide">
+                    Button
+                </a>
+            </li>
+            <li data-theme="a">
+                <a href="#page1" data-transition="slide">
+                    Button
+                </a>
+            </li>
+            <li data-theme="a">
+                <a href="#page1" data-transition="slide">
+                    Button
+                </a>
+            </li>
+            <li data-theme="a">
+                <a href="#page1" data-transition="slide">
+                    Button
+                </a>
+            </li>
+        </ul>
+    </div>
+    <div data-theme="a" data-role="footer" data-position="fixed">
+        <h3 class="ui-title">
+            Powered by KONA Cloud
+        </h3>
+    </div>
+</div>
+<div data-role="page" data-control-title="detalles" id="pageDetalles">
+
+    <div data-theme="a" data-role="header">
+        <a href="#" class="ui-btn-left" data-transition="slide" data-direction="reverse" onclick="history.go(-1);">Atras</a>
+        <h1 class="ui-title">
+            Detalles
+        </h1>
+    </div>
+    <div role="main" class="ui-content">
+
+        <h4>
+            Viaje:
+        </h4>
+        <div id="viaje" data-controltype="textblock">
+        </div>
+
+        <h4>
+            Horario:
+        </h4>
+        <div id="horario" data-controltype="textblock">
+        </div>
+        <h4>
+            Empresa:
+        </h4>
+        <div id="empresa" data-controltype="textblock">
+        </div>
+        </h4>
+        <h4>
+            Dias:
+        </h4>
+        <div id="dias" data-controltype="textblock">
+        </div>
+        <h4>
+            Ruta:
+        </h4>
+        <div id="ruta" data-controltype="textblock">
+        </div>
+
+        <h4>
+            Pasando por:
+        </h4>
+        <div id="lugar" data-controltype="textblock">
+        </div>
+    </div>
+    <div data-theme="a" data-role="footer" data-position="fixed">
+        <h3 class="ui-title">
+            Powered by KONA Cloud
+        </h3>
+    </div>
+</div>
+</body>
+</html>
