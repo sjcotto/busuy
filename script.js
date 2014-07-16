@@ -44,56 +44,35 @@ $(document).ready(function() {
 
     });
 
-
-
-    //$("#origen").val("MONTEVIDEO");
-    //$("#destino").val("COLONIA");
-
-    $("#btnBuscar").click(function() {
-
-
-
+    $("#btnBuscar").click(function(event) {
         var origen = $("#origen").val();
         var destino = $("#destino").val();
 
-        //traemos la info del server
-
         $('#search-page-list-view').empty();
-
         $.getJSON(BASE_URL+"mr_viaje/findByOriginAndDestino?o="+origen+"&d="+destino, function(data) {
-
                   var array = data.data;
                   array.forEach(function(entry) {
-
-                    //console.log(entry);
-
                     var li = $("<li/>");
-
-
                     var empresa = entry.Empresa.replace("ï¿½","N");
-
                     li.attr('data-id', entry._id);
                     li.attr('data-name', empresa);
-
                     var html = "<h2 class=\"ui-li-heading\"> " + entry.HSalida + " - " + entry.HLlegada + "</h2>" + "<p class=\"ui-li-desc\">" + empresa + "</p>";
-
                     var title = $("<a/>").append(html);
                     title.addClass( "ui-btn ui-btn-a ui-btn-icon-right ui-icon-carat-r" );
                     li.append(title);
-
-
                     li.appendTo("#search-page-list-view");
                   });
+
                 if (array.length == 0){
-                  $( "#popupBasic" ).popup( "open");
+                  alert("No existen datos para la ruta seleccionada");
                 }
 
         });
 
         $.mobile.navigate( "#page2" );
         $.mobile.changePage( "#page2");
-        //event.preventDefault();
-        //return false;
+        event.preventDefault();
+        return false;
   });
 });
 
@@ -127,15 +106,4 @@ $(document).on('vclick', '#search-page-list-view li', function(){
           $.mobile.loading('hide');
     });
     //return false;
-});
-
-
-$('#page2' ).bind( 'pageinit',function(event){
-            setTimeout(function(){
-              $("#popupBasic").popup();
-              $("#popupBasic").popup("open");
-            }, 100);
-            setTimeout(function(){
-              $("#popupBasic").popup("close");
-            }, 5000);
 });
