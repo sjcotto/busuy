@@ -61,10 +61,11 @@ $(document).ready(function() {
                     title.addClass( "ui-btn ui-btn-a ui-btn-icon-right ui-icon-carat-r" );
                     li.append(title);
                     li.appendTo("#search-page-list-view");
-                  });
+                });
 
                 if (array.length == 0){
                   alert("No existen datos para la ruta seleccionada");
+                  history.go(-1);
                 }
 
         });
