@@ -1,6 +1,10 @@
 
 var BASE_URL = "http://app.konacloud.io/api/taio/BusUY/";
 
+$(document).bind("mobileinit", function(){
+       $.mobile.defaultTransition = 'none';
+});
+
 $(document).ready(function() {
     loading = true;
     $.mobile.loading('show');
