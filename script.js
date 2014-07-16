@@ -2,7 +2,6 @@
 var BASE_URL = "http://app.konacloud.io/api/taio/BusUY/";
 
 $(document).ready(function() {
-
     loading = true;
     $.mobile.loading('show');
 
@@ -63,28 +62,32 @@ $(document).ready(function() {
 
         $.getJSON(BASE_URL+"mr_viaje/findByOriginAndDestino?o="+origen+"&d="+destino, function(data) {
 
-                var array = data.data;
-                array.forEach(function(entry) {
+                  var array = data.data;
+                  array.forEach(function(entry) {
 
-                  //console.log(entry);
+                    //console.log(entry);
 
-                  var li = $("<li/>");
-
-
-                  var empresa = entry.Empresa.replace("ï¿½","N");
-
-                  li.attr('data-id', entry._id);
-                  li.attr('data-name', empresa);
-
-                  var html = "<h2 class=\"ui-li-heading\"> " + entry.HSalida + " - " + entry.HLlegada + "</h2>" + "<p class=\"ui-li-desc\">" + empresa + "</p>";
-
-                  var title = $("<a/>").append(html);
-                  title.addClass( "ui-btn ui-btn-a ui-btn-icon-right ui-icon-carat-r" );
-                  li.append(title);
+                    var li = $("<li/>");
 
 
-                  li.appendTo("#search-page-list-view");
-            });
+                    var empresa = entry.Empresa.replace("ï¿½","N");
+
+                    li.attr('data-id', entry._id);
+                    li.attr('data-name', empresa);
+
+                    var html = "<h2 class=\"ui-li-heading\"> " + entry.HSalida + " - " + entry.HLlegada + "</h2>" + "<p class=\"ui-li-desc\">" + empresa + "</p>";
+
+                    var title = $("<a/>").append(html);
+                    title.addClass( "ui-btn ui-btn-a ui-btn-icon-right ui-icon-carat-r" );
+                    li.append(title);
+
+
+                    li.appendTo("#search-page-list-view");
+                  });
+                if (array.length == 0){
+                  $( "#popupBasic" ).popup( "open");
+                }
+
         });
 
         $.mobile.navigate( "#page2" );
@@ -124,4 +127,15 @@ $(document).on('vclick', '#search-page-list-view li', function(){
           $.mobile.loading('hide');
     });
     //return false;
+});
+
+
+$('#page2' ).bind( 'pageinit',function(event){
+            setTimeout(function(){
+              $("#popupBasic").popup();
+              $("#popupBasic").popup("open");
+            }, 100);
+            setTimeout(function(){
+              $("#popupBasic").popup("close");
+            }, 5000);
 });
